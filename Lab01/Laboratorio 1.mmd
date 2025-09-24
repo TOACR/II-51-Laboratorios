@@ -1,0 +1,73 @@
+classDiagram
+    %% Clases principales
+    class Profesor {
+      +int idProfesor
+      +string nombre
+      +string apellido
+      +string email
+      +string telefono
+      +string departamento
+      +crearGrupo()
+      +calificarEstudiante()
+    }
+
+    class Estudiante {
+      +int idEstudiante
+      +string nombre
+      +string apellido
+      +string email
+      +string telefono
+      +string numeroMatricula
+      +inscribirse()
+      +consultarCalificaciones()
+    }
+
+    class Curso {
+      +int idCurso
+      +string codigo
+      +string nombre
+      +string descripcion
+      +int creditos
+      +obtenerSyllabus()
+    }
+
+    class Periodo {
+      +int idPeriodo
+      +string nombre      <<ej: "2025-1">>
+      +date fechaInicio
+      +date fechaFin
+      +bool activo
+      +abrirInscripcion()
+    }
+
+    class Grupo {
+      +int idGrupo
+      +string codigo
+      +int capacidad
+      +string aula
+      +string horario
+      +enum estado {Abierto, Cerrado, Finalizado}
+      +asignarProfesor()
+    }
+
+    class Inscripcion {
+      +int idInscripcion
+      +date fechaInscripcion
+      +string estado       <<ej: "Matriculado","Retirado">>
+      +float notaFinal
+      +string letra
+    }
+
+    %% Relaciones (cardinalidades)
+    Curso "1" -- "*" Grupo : "tiene"
+    Periodo "1" -- "*" Grupo : "contiene"
+    Profesor "1" -- "0..*" Grupo : "imparte"
+    Estudiante "1" -- "0..*" Inscripcion : "realiza"
+    Grupo "1" -- "0..*" Inscripcion : "recibe"
+    Inscripcion "*" -- "1" Estudiante : ""
+    Inscripcion "*" -- "1" Grupo : ""
+
+    %% Relación opcional entre Profesores y Cursos (varios profesores por curso posible)
+    Profesor "0..*" -- "0..*" Curso : "puede_dictar"
+
+    note for Inscripcion "Entidad asociativa: guarda estado de inscripción, fecha y nota. Evita relación directa muchos-a-muchos sin atributos."
