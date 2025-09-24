@@ -47,27 +47,21 @@ classDiagram
         +verificarCupo() : bool
     }
 
-    class Inscripcion {
-      -idInscripcion : int
-      -fechaInscripcion : date
+    class Matricula {
+      -idMatricula : int
+      -fechaMatricula : date
       -estado : string  <<ej: "Matriculado","Retirado">>
       -notaFinal : float
-      -letra : string
       +matricular() : void
       +retirar() : void
     }
+    
     %% Relaciones simplificadas con cardinalidades
-
-    %%Curso "1" --> "*" Grupo : tiene
-    %%Periodo "1" --> "*" Grupo : contiene
-    %%Profesor "1" --> "0..*" Grupo : imparte
-    %%Profesor "0..*" --> "0..*" Curso : puede_impartir
-    %%Estudiante "1" --> "0..*" Inscripcion : realiza
-    %%Grupo "1" --> "0..*" Inscripcion : recibe
-    %%Inscripcion "*" --> "1" Estudiante
-    %%Inscripcion "*" --> "1" Grupo
-   
-
-    %%Estudiante "1" --> "*" PeriodoCurso: matriculado en
-    %%Curso "1" --> "*" Periodo : ofrecido en
-    %%Periodo "1" --> PeriodoCurso : contiene
+    Curso "1" --> "*" Grupo : tiene
+    Periodo "1" --> "*" Grupo : contiene
+    Profesor "1" --> "0..*" Grupo : imparte
+    Estudiante "1" --> "0..*" Matricula : realiza
+    Grupo "1" --> "0..*" Matricula : recibe
+    Matricula "*" --> "1" Estudiante
+    Matricula "*" --> "1" Grupo
+    Profesor "0..*" --> "0..*" Curso : puede_impartir
