@@ -1,4 +1,15 @@
 classDiagram
+    class Profesor {
+       -idProfesor : int
+       -nombre : string
+       -apellido : string
+       -email : string
+       -telefono : string
+       -departamento : string
+       +crearGrupo() : void
+       +calificarEstudiante(estudianteId : int, nota : float) : void
+    }
+
     class Estudiante {
         -id: int
         -nombre: string
@@ -33,7 +44,17 @@ classDiagram
         -horario: string
         +asingnarProfesor(): void
         +definirHorario(): void
+    }
 
+    class Grupo {
+      -idGrupo : int
+      -codigo : string
+      -capacidad : int
+      -aula : string
+      -horario : string
+      -estado : string
+      +asignarProfesor(profesorId : int) : void
+      +verificarCupo() : bool
     }
  
     Estudiante "1" --> "*" PeriodoCurso: matriculado en

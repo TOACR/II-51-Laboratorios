@@ -22,31 +22,31 @@ classDiagram
     }
 
     class Curso {
-      +idCurso : int
-      +codigo : string
-      +nombre : string
-      +descripcion : string
-      +creditos : int
+      -idCurso : int
+      -codigo : string
+      -nombre : string
+      -descripcion : string
+      -creditos : int
       +obtenerSyllabus() : string
     }
 
     class Periodo {
-      +idPeriodo : int
-      +nombre : string  <<ej: "2025-1">>
-      +fechaInicio : date
-      +fechaFin : date
-      +activo : bool
+      -idPeriodo : int
+      -nombre : string  <<ej: "2025-1">>
+      -fechaInicio : date
+      -fechaFin : date
+      -activo : bool
       +abrirInscripcion() : void
       +cerrarInscripcion() : void
     }
 
     class Grupo {
-      +idGrupo : int
-      +codigo : string
-      +capacidad : int
-      +aula : string
-      +horario : string
-      +estado : string
+      -idGrupo : int
+      -codigo : string
+      -capacidad : int
+      -aula : string
+      -horario : string
+      -estado : string
       +asignarProfesor(profesorId : int) : void
       +verificarCupo() : bool
     }
