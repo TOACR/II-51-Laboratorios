@@ -1,12 +1,11 @@
 classDiagram
     class Profesor {
-       -idProfesor : int
-       -nombre : string
-       -apellido : string
-       -email : string
-       -departamento : string
-       +crearGrupo() : void
-       +calificarEstudiante(estudianteId : int, nota : float) : void
+        -idProfesor : int
+        -nombre : string
+        -apellido : string
+        -email : string
+        +crearGrupo() : void
+        +calificarEstudiante(): void
     }
 
     class Estudiante {
@@ -22,7 +21,7 @@ classDiagram
     }
  
     class Curso {
-        -codigo: string
+        -idCurso: string
         -nombre: string
         -creditos: int
         +matricular(): void
@@ -37,24 +36,15 @@ classDiagram
         +finalizarPeriodo(): void
     }
 
-    class PeriodoCurso {
-        -idCurso: string
-        -idPeriodo: int
-        -idProfesor: int 
-        -horario: string
-        +asingnarProfesor(): void
-        +definirHorario(): void
-    }
-
     class Grupo {
-      -idGrupo : int
-      -codigo : string
-      -capacidad : int
-      -aula : string
-      -horario : string
-      -estado : string
-      +asignarProfesor(profesorId : int) : void
-      +verificarCupo() : bool
+        -idCurso : int
+        -idPeriodo: int
+        -idProfesor: int
+        -horario : string
+        -estado : string
+        +asignarProfesor() : void
+        +definirHorario(): void
+        +verificarCupo() : bool
     }
 
     class Inscripcion {
