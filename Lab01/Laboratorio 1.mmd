@@ -1,64 +1,67 @@
 classDiagram
-    %% Clases principales
     class Profesor {
-      +int idProfesor
-      +string nombre
-      +string apellido
-      +string email
-      +string telefono
-      +string departamento
-      +crearGrupo()
-      +calificarEstudiante()
+      -idProfesor : int
+      -nombre : string
+      -apellido : string
+      -email : string
+      -telefono : string
+      -departamento : string
+      +crearGrupo() : void
+      +calificarEstudiante(estudianteId : int, nota : float) : void
     }
 
     class Estudiante {
-      +int idEstudiante
-      +string nombre
-      +string apellido
-      +string email
-      +string telefono
-      +string numeroMatricula
-      +inscribirse()
-      +consultarCalificaciones()
+      -idEstudiante : int
+      -nombre : string
+      -apellido : string
+      -email : string
+      -telefono : string
+      -numeroMatricula : string
+      +inscribirse(grupoId : int) : bool
+      +consultarCalificaciones() : string
     }
 
     class Curso {
-      +int idCurso
-      +string codigo
-      +string nombre
-      +string descripcion
-      +int creditos
-      +obtenerSyllabus()
+      +idCurso : int
+      +codigo : string
+      +nombre : string
+      +descripcion : string
+      +creditos : int
+      +obtenerSyllabus() : string
     }
 
     class Periodo {
-      +int idPeriodo
-      +string nombre      <<ej: "2025-1">>
-      +date fechaInicio
-      +date fechaFin
-      +bool activo
-      +abrirInscripcion()
+      +idPeriodo : int
+      +nombre : string  <<ej: "2025-1">>
+      +fechaInicio : date
+      +fechaFin : date
+      +activo : bool
+      +abrirInscripcion() : void
+      +cerrarInscripcion() : void
     }
 
     class Grupo {
-      +int idGrupo
-      +string codigo
-      +int capacidad
-      +string aula
-      +string horario
-      +enum estado {Abierto, Cerrado, Finalizado}
-      +asignarProfesor()
+      +idGrupo : int
+      +codigo : string
+      +capacidad : int
+      +aula : string
+      +horario : string
+      +estado : string
+      +asignarProfesor(profesorId : int) : void
+      +verificarCupo() : bool
     }
 
     class Inscripcion {
-      +int idInscripcion
-      +date fechaInscripcion
-      +string estado       <<ej: "Matriculado","Retirado">>
-      +float notaFinal
-      +string letra
+      +idInscripcion : int
+      +fechaInscripcion : date
+      +estado : string  <<ej: "Matriculado","Retirado">>
+      +notaFinal : float
+      +letra : string
+      +matricular() : void
+      +retirar() : void
     }
 
-    %% Relaciones (cardinalidades)
+    %% Relaciones
     Curso "1" -- "*" Grupo : "tiene"
     Periodo "1" -- "*" Grupo : "contiene"
     Profesor "1" -- "0..*" Grupo : "imparte"
@@ -66,8 +69,8 @@ classDiagram
     Grupo "1" -- "0..*" Inscripcion : "recibe"
     Inscripcion "*" -- "1" Estudiante : ""
     Inscripcion "*" -- "1" Grupo : ""
-
-    %% Relación opcional entre Profesores y Cursos (varios profesores por curso posible)
     Profesor "0..*" -- "0..*" Curso : "puede_dictar"
 
-    note for Inscripcion "Entidad asociativa: guarda estado de inscripción, fecha y nota. Evita relación directa muchos-a-muchos sin atributos."
+    note for Inscripcion "Entidad asociativa: guarda estado de inscripción, fecha y nota."
+
+
