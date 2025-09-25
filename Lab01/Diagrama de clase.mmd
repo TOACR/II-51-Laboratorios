@@ -37,9 +37,11 @@ classDiagram
     }
 
     class Grupo {
+        -idGrupo : int
         -idCurso : int
         -idPeriodo: int
         -idProfesor: int
+        -capacidad : int
         -horario : string
         -estado : string
         +asignarProfesor() : void
@@ -49,6 +51,8 @@ classDiagram
 
     class Matricula {
       -idMatricula : int
+      -idEstudiante: int
+      -idGrupo: int
       -fechaMatricula : date
       -estado : string  <<ej: "Matriculado","Retirado">>
       -notaFinal : float
