@@ -1,9 +1,18 @@
 classDiagram
+    class Profesor {
+        -idProfesor : int
+        -nombre : string
+        -apellido : string
+        -email : string
+        +crearGrupo() : void
+        +calificarEstudiante(): void
+    }
+
     class Estudiante {
-        -id: int
+        -idEstudiante: int
         -nombre: string
+        -apellido : string
         -email: string
-        -carrera: string
         +registrar(): void
         +editarPerfil(): void
         +consultarCursosDisponibles(): List<Curso>
@@ -11,11 +20,11 @@ classDiagram
     }
  
     class Curso {
-        -codigo: string
+        -idCurso: string
         -nombre: string
         -creditos: int
-        +matricular(): void
-        +retirar(): void
+        +abrir(): void
+        +cerrar(): void
     }
 
     class Periodo {
@@ -26,19 +35,36 @@ classDiagram
         +finalizarPeriodo(): void
     }
 
-    class PeriodoCurso {
-        -idCurso: string
+    class Grupo {
+        -idGrupo : int
+        -idCurso : int
         -idPeriodo: int
-        -idProfesor: int 
-        -horario: string
-        +asingnarProfesor(): void
+        -idProfesor: int
+        -capacidad : int
+        -horario : string
+        -estado : string
+        +asignarProfesor() : void
         +definirHorario(): void
-
+        +verificarCupo() : bool
     }
- 
-    Estudiante "1" --> "*" PeriodoCurso: matriculado en
-    Curso "1" --> "*" Periodo : ofrecido en
-    Periodo "1" --> PeriodoCurso : contiene
 
-
- 
+    class Matricula {
+        -idMatricula : int
+        -idEstudiante: int
+        -idGrupo: int
+        -fechaMatricula : date
+        -estado : string  <<ej: "Matriculado","Retirado">>
+        -notaFinal : float
+        +matricular() : void
+        +retirar() : void
+    }
+    
+    %% Relaciones simplificadas con cardinalidades
+    Curso "1" --> "*" Grupo : tiene
+    Periodo "1" --> "*" Grupo : contiene
+    Profesor "1" --> "0..*" Grupo : pertenece
+    Estudiante "1" --> "0..*" Matricula : realiza
+    Grupo "1" --> "0..*" Matricula : recibe
+    Matricula "*" --> "1" Estudiante
+    Matricula "*" --> "1" Grupo
+    Profesor "0..*" --> "0..*" Curso : puede_impartir
