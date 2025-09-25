@@ -59,7 +59,7 @@ classDiagram
     %% Relaciones simplificadas con cardinalidades
     Curso "1" --> "*" Grupo : tiene
     Periodo "1" --> "*" Grupo : contiene
-    Profesor "1" --> "0..*" Grupo : imparte
+    Profesor "1" --> "0..*" Grupo : pertenece
     Estudiante "1" --> "0..*" Matricula : realiza
     Grupo "1" --> "0..*" Matricula : recibe
     Matricula "*" --> "1" Estudiante
