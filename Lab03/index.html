@@ -7,8 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LAB-03</title>
   <style>
-    body{
-      background-color: rgba(0, 0, 0, 0.623);
+    
+    body {
+     background-color: #aab2e2; /* ← color de fondo */
+     color: #111;              /* color del texto */
+     font-family: 'Poppins', sans-serif; /* ← tipo de fuente */
     }
     .form-group label {
       display: block;
@@ -99,20 +102,36 @@
             <legend>Seleccione sus intereses:</legend>
             <div>
               <div>
-                <input type="checkbox" name="intereses" id="interes1" value="programacion">
+                <input type="checkbox" name="intereses[]" id="interes1" value="programacion">
                 <label for="interes1">Programación</label>
               </div>
               <div>
-                <input type="checkbox" name="intereses" id="interes2" value="diseño">
+                <input type="checkbox" name="intereses[]" id="interes2" value="diseño">
                 <label for="interes2">Diseño Gráfico</label>
               </div>
               <div>
-                <input type="checkbox" name="intereses" id="interes3" value="marketing">
+                <input type="checkbox" name="intereses[]" id="interes3" value="marketing">
                 <label for="interes3">Marketing Digital</label>
               </div>
               <div>
-                <input type="checkbox" name="intereses" id="interes4" value="ciencia">
+                <input type="checkbox" name="intereses[]" id="interes4" value="ciencia">
                 <label for="interes4">Ciencia de Datos</label>
+              </div>
+              <div>
+                <input type="checkbox" name="intereses[]" id="interes5" value="soporte">
+                <label for="interes5">Soporte</label>
+              </div>
+              <div>
+                <input type="checkbox" name="intereses[]" id="interes6" value="licencias">
+                <label for="interes6">Licenciamiento</label>
+              </div>
+              <div>
+                <input type="checkbox" name="intereses[]" id="interes7" value="IA">
+                <label for="interes7">Inteligencia Artificial</label>
+              </div>
+              <div>
+                <input type="checkbox" name="intereses[]" id="interes8" value="bigdata">
+                <label for="interes8">Big Data</label>
               </div>
           </fieldset>
 
@@ -129,7 +148,7 @@
   </main>
   <footer>
     <p>&copy; 2023 Plataforma Educativa Universidad Central</p>
-    <p>Contacto: <a href="mailto:fabian.chinchilla@uc.ac.cr">Fabian</p>
+    <p>Contacto: <a href="oldhernandezjim@uc.ac.cr">Oldemar</a></p>
   </footer>
 </body>
 
