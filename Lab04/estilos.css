@@ -63,6 +63,7 @@
         margin: 20px 0;
         padding: 10px 0;
         border-radius: 5px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); /* Sombra en la caja */
     }
 
     .menu ul {
@@ -84,6 +85,8 @@
         text-decoration: none;
         padding: 14px 20px;
         display: block;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); /* Sombra en la caja */
+        transition: background-color 1.0s ease;
     }
 
     .menu a:hover {
@@ -97,6 +100,7 @@
         border-radius: 5px;
         max-width: 520px;
         margin: 20px auto;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
     }
 
     #video-section {
