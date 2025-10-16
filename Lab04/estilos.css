@@ -42,7 +42,7 @@
       border: 0;
       width: 100%;
       text-shadow: 8px 8px 6px rgba(0, 0, 0, 0.4);
-      transition: background-color 1.0s ease; /* Transición suave al cambiar el color de fondo */
+      transition: background-color 0.5s ease; /* Transición suave al cambiar el color de fondo */
     }
 
     fieldset {
@@ -85,13 +85,13 @@
         text-decoration: none;
         padding: 14px 20px;
         display: block;
-        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); /* Sombra en la caja */
-        transition: background-color 1.0s ease;
+        transition: background-color 2.0s ease;
     }
 
     .menu a:hover {
         background-color: rgba(0, 0, 0, 0.623);
         border-radius: 4px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); /* Sombra en la caja */
     }
 
     #form-section {
