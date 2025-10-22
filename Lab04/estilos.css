@@ -1,7 +1,7 @@
     
     body {
      background-color: #aab2e2; /* ← color de fondo */
-     color: #111;              /* color del texto */
+     color: hsl(0, 0%, 7%);              /* color del texto */
      font-family: 'Poppins', sans-serif; /* ← tipo de fuente */
     }
 
@@ -17,6 +17,14 @@
         text-align: center;
     }
 
+    .header-titles {
+      width: 350px;
+      height: 120px;
+      background-color: #af4c7d;
+      margin: 0 auto;
+      box-shadow: 5px 5px 10px rgba(228, 212, 69, 0.3); /* Sombra en la caja */
+         
+    }
     .form-group label {
       display: block;
       margin-left: 5px;
@@ -42,7 +50,7 @@
       border: 0;
       width: 100%;
       text-shadow: 8px 8px 6px rgba(0, 0, 0, 0.4);
-      transition: background-color 0.5s ease; /* Transición suave al cambiar el color de fondo */
+      transition: background-color 2.0s ease; /* Transición suave al cambiar el color de fondo */
     }
 
     fieldset {
@@ -91,7 +99,7 @@
     .menu a:hover {
         background-color: rgba(0, 0, 0, 0.623);
         border-radius: 4px;
-        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); /* Sombra en la caja */
+        box-shadow: 5px 5px 10px rgba(13, 209, 13, 0.3); /* Sombra en la caja */
     }
 
     #form-section {
@@ -151,14 +159,6 @@
 
     }
 
-    .header-titles {
-        width: 350px;
-         height: 120px;
-         background-color: #4CAF50;
-         margin: 0 auto;
-         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); /* Sombra en la caja */
-         
-    }
 
 
     
