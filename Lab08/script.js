@@ -1,0 +1,3 @@
+let supabasekey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFjcmV0cHFkd2hrZG52cHVyenNvIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2MDU2MTE3MywiZXhwIjoyMDc2MTM3MTczfQ.XhtimRNDni-7JIeG1VL4Wegykj07h-M1zXgxrMssacU";
+let supabaseurl = "https://acretpqdwhkdnvpurzso.supabase.co";
+const supabase = supabase.createClient(supabaseurl, supabasekey);
